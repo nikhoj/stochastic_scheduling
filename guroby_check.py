@@ -14,9 +14,9 @@ def solve_FPT(sd):
     random.seed(sd)
     max_likelihood = 0
     # Initialization
-    dd = 100
+    dd = 300
     m = 2
-    n = 2
+    n = 10
     machines = []
     jobs = []
 
@@ -46,8 +46,8 @@ def solve_FPT(sd):
     for var_i in range(len(var_list) - 1):
         config_var.append(var_list[var_i:var_i + 2])
 
-    config_mu = list(itertools.product(config_mu, repeat=m))
-    config_var = list(itertools.product(config_var, repeat=m))
+    config_mu = list(itertools.combinations_with_replacement(config_mu, r=m))
+    config_var = list(itertools.combinations_with_replacement(config_var, r=m))
     # b = config_mu[1][2][1]
 
     for mu_range in config_mu:
