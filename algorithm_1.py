@@ -56,6 +56,6 @@ def algorithm1(m, n, delta, sd=0):
 
 
 start_time = time.time()
-x = algorithm1(2, 10, 320)
+x = algorithm1(2, 10, 400)
 end_time = time.time()
 print("Running time : {}".format(end_time - start_time))
