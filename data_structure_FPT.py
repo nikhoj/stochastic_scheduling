@@ -7,8 +7,8 @@ import numpy as np
 class Job:
     def __init__(self, id):
         self.id = id
-        self.mean = random.normalvariate(50, 5)
-        self.var = random.normalvariate(5, 1) ** 2
+        self.mean = random.randint(50,300)
+        self.var = random.randint(1,15)
         self.std = np.sqrt(self.var)
 
         # self.mean = round((1 + xi) ** int(math.log(self.mean, (1 + xi))))
@@ -51,7 +51,7 @@ class Schedule:
     def final_possible_var(self):
         alist = [0]
         i = 0
-        while ((1 + self.xi) ** i) <= self.sum_of_variance()/1.5:
+        while ((1 + self.xi) ** i) <= (self.sum_of_variance()/len(self.machines))*2 :
             alist.append((1 + self.xi) ** i)
             i += 1
 
